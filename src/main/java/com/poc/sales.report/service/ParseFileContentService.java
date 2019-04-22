@@ -29,5 +29,11 @@ class ParseFileContentService {
         return false;
     }
 
+    public static Matcher getMatcherByExpression(String line, String expression) {
+        Pattern pattern = Pattern.compile(expression);
+        result = pattern.matcher(line);
+        return result;
+    }
+
     static Matcher getResult() { return result; }
 }
