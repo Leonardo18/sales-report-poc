@@ -6,9 +6,9 @@ public class CustomerBuilder {
 
     private CustomerModel customerModel = new CustomerModel();
 
-    CustomerBuilder() { }
+    public CustomerBuilder() { }
 
-    public CustomerBuilder withId(Integer id){
+    public CustomerBuilder withId(Long id){
         this.customerModel.setId(id);
         return this;
     }

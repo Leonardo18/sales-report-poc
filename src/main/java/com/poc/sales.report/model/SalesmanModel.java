@@ -5,19 +5,15 @@ import java.util.List;
 
 public class SalesmanModel {
 
-    private Integer id;
+    private Long id;
     private String taxId;
     private String name;
     private BigDecimal salary;
     private List<SaleModel> saleModelList;
 
-    public Integer getId() {
-        return id;
-    }
+    public Long getId() { return id; }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public void setId(Long id) { this.id = id; }
 
     public String getTaxId() {
         return taxId;

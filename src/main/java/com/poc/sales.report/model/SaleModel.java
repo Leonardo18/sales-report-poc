@@ -1,29 +1,23 @@
 package com.poc.sales.report.model;
 
+import com.poc.sales.report.builder.SaleBuilder;
+
 import java.util.List;
 
 public class SaleModel {
 
-    private Integer id;
-    private Integer code;
+    private Long id;
+    private Long code;
     private String salesmanName;
     private List<ItemModel> itemModelList;
 
-    public Integer getId() {
-        return id;
-    }
+    public Long getId() { return id; }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public void setId(Long id) { this.id = id; }
 
-    public Integer getCode() {
-        return code;
-    }
+    public Long getCode() { return code; }
 
-    public void setCode(Integer code) {
-        this.code = code;
-    }
+    public void setCode(Long code) { this.code = code; }
 
     public String getSalesmanName() {
         return salesmanName;
@@ -40,4 +34,6 @@ public class SaleModel {
     public void setItemModelList(List<ItemModel> itemModelList) {
         this.itemModelList = itemModelList;
     }
+
+    public static SaleBuilder builder() { return new SaleBuilder(); }
 }

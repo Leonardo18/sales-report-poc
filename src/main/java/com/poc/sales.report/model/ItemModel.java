@@ -1,20 +1,18 @@
 package com.poc.sales.report.model;
 
+import com.poc.sales.report.builder.ItemBuilder;
+
 import java.math.BigDecimal;
 
 public class ItemModel {
 
-    private Integer id;
+    private Long id;
     private Integer quantity;
     private BigDecimal price;
 
-    public Integer getId() {
-        return id;
-    }
+    public Long getId() { return id; }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public void setId(Long id) { this.id = id; }
 
     public Integer getQuantity() {
         return quantity;
@@ -31,4 +29,6 @@ public class ItemModel {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
+
+    public static ItemBuilder builder() { return new ItemBuilder(); }
 }

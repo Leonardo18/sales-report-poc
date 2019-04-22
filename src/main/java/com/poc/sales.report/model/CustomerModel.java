@@ -1,19 +1,17 @@
 package com.poc.sales.report.model;
 
+import com.poc.sales.report.builder.CustomerBuilder;
+
 public class CustomerModel {
 
-    private Integer id;
+    private Long id;
     private String taxId;
     private String name;
     private String businessArea;
 
-    public Integer getId() {
-        return id;
-    }
+    public Long getId() { return id; }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public void setId(Long id) { this.id = id; }
 
     public String getTaxId() {
         return taxId;
@@ -38,4 +36,6 @@ public class CustomerModel {
     public void setBusinessArea(String businessArea) {
         this.businessArea = businessArea;
     }
+
+    public static CustomerBuilder builder() { return new CustomerBuilder(); }
 }
