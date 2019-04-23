@@ -25,7 +25,7 @@ public final class DirectoryEventListenerService implements FileAlterationListen
             System.out.println(directory.getAbsolutePath() + " The directory that will be monitored does not exist. Create the directory to be monitored");
 
         File[] files = directory.listFiles();
-        Arrays.stream(files != null ? files : new File[0]).parallel().forEach(this::onFileCreate);
+        Arrays.stream(files != null ? files : new File[0]).forEach(this::onFileCreate);
     }
 
     @Override
@@ -43,7 +43,7 @@ public final class DirectoryEventListenerService implements FileAlterationListen
     @Override
     public void onFileCreate(final File file) {
         if (validateFileService.validateFile(file)) {
-            salesReportService.proccessFile(file);
+            salesReportService.processInputFileData(file);
         }
     }
 

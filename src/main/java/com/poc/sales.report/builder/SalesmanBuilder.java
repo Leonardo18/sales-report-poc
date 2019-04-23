@@ -32,6 +32,11 @@ public class SalesmanBuilder {
         return this;
     }
 
+    public SalesmanBuilder withTotalSalesValue(BigDecimal totalSalesValue){
+        this.salesmanModel.setTotalSalesValue(totalSalesValue);
+        return this;
+    }
+
     public SalesmanBuilder withSaleList(List<SaleModel> saleModelList){
         this.salesmanModel.setSaleModelList(saleModelList);
         return this;

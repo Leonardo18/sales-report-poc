@@ -2,6 +2,7 @@ package com.poc.sales.report.model;
 
 import com.poc.sales.report.builder.SaleBuilder;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class SaleModel {
@@ -9,6 +10,7 @@ public class SaleModel {
     private Long id;
     private Long code;
     private String salesmanName;
+    private BigDecimal totalSale;
     private List<ItemModel> itemModelList;
 
     public Long getId() { return id; }
@@ -26,6 +28,10 @@ public class SaleModel {
     public void setSalesmanName(String salesmanName) {
         this.salesmanName = salesmanName;
     }
+
+    public BigDecimal getTotalSale() { return totalSale; }
+
+    public void setTotalSale(BigDecimal totalSale) { this.totalSale = totalSale; }
 
     public List<ItemModel> getItemModelList() {
         return itemModelList;

@@ -10,17 +10,17 @@ public class ItemBuilder {
 
     public ItemBuilder() { }
 
-    public ItemBuilder withId(Long id){
+    public ItemBuilder withId(Long id) {
         this.itemModel.setId(id);
         return this;
     }
 
-    public ItemBuilder withQuantity(Integer quantity){
+    public ItemBuilder withQuantity(Integer quantity) {
         this.itemModel.setQuantity(quantity);
         return this;
     }
 
-    public ItemBuilder withPrice(BigDecimal price){
+    public ItemBuilder withPrice(BigDecimal price) {
         this.itemModel.setPrice(price);
         return this;
     }
