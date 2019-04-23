@@ -10,5 +10,7 @@ This poc is writed with ***Java*** to monitoring a folder with a file with speci
   002ç2345675434544345çJose da SilvaçRural
   002ç2345675433444345çEduardo PereiraçRural
   003ç10ç[1-10-100,2-30-2.50,3-40-3.10]çPedro
-  003ç08ç[1-34-10,2-33-1.50,3-40-0.10]çPaulo
+  003ç08ç[1-34-10,2-33-1.50,3-40-0.10]çPaulo 
+* The extension of origin file in folder ***/data/in*** need be ***.dat***
+* The extension of output file in ***/data/out*** will be ***.done.dat***
 * The output file will contains some resume informations about source file
