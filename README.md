@@ -14,3 +14,4 @@ This poc is writed with ***Java*** to monitoring a folder with a file with speci
 * The extension of origin file in folder ***/data/in*** need be ***.dat***
 * The extension of output file in ***/data/out*** will be ***.done.dat***
 * The output file will contains some resume informations about source file
+* In case of use a build jar to generate a jar of project to execute, use a parameter to reference application.yml in resources to get some properties from these file
