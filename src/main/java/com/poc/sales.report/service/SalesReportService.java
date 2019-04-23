@@ -42,7 +42,6 @@ public class SalesReportService {
     public void processInputFileData(File file) {
         try {
             Stream<String> stream = Files.lines(Paths.get(file.getAbsolutePath()));
-            file.delete();
 
             salesmanModelList = new ArrayList<>();
             customerModelList = new ArrayList<>();
@@ -61,6 +60,7 @@ public class SalesReportService {
             salesmanModelList = salesmanService.setSalesmanSales(salesmanModelList, saleModelList);
             processSalesReportFile(getSourceFileNameWithoutExtension(file));
             System.out.println("File processed with success.");
+            file.delete();
 
         } catch (Exception ex) {
             System.out.println("Error to proccess file, please verify file content and try again. File:" + file.getAbsolutePath());
@@ -98,7 +98,7 @@ public class SalesReportService {
 
     private String buildTotalCustomersReportLine() {
         return new StringBuilder()
-                .append("Total de clientes: ")
+                .append("Total Customers: ")
                 .append(customerService.getTotalCustomer(customerModelList))
                 .toString();
     }

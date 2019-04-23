@@ -28,16 +28,12 @@ public class SalesmanService {
     public List<SalesmanModel> setSalesmanSales(List<SalesmanModel> salesmanModelList,
                                                   List<SaleModel> saleModelList) {
 
-        salesmanModelList.stream().forEach(salesman -> {
-                    salesman.setSaleModelList(
-                            saleModelList.stream()
+        salesmanModelList.forEach(salesman -> {
+                    salesman.setSaleModelList(saleModelList.stream()
                             .filter(sale -> sale.getSalesmanName().equals(salesman.getName()))
-                            .collect(Collectors.toList())
-                    );
-
+                            .collect(Collectors.toList()));
                    salesman.setTotalSalesValue(getSalesmanTotalSales(salesman).getTotalSalesValue());
-                }
-        );
+                });
         return salesmanModelList;
     }
 
@@ -53,15 +49,11 @@ public class SalesmanService {
     }
 
     private SalesmanModel getSalesmanTotalSales(SalesmanModel salesmanModel) {
-        salesmanModel.getSaleModelList()
-                .forEach(sale -> salesmanModel.setTotalSalesValue(
-                        new BigDecimal(
-                                Double.sum(
-                                        salesmanModel.getTotalSalesValue().doubleValue(),
-                                        sale.getTotalSale().doubleValue()
-                                )
-                        )
-                ));
+        BigDecimal totalSalesmanSaleValue = salesmanModel.getSaleModelList()
+                .stream()
+                .map(SaleModel::getTotalSale)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+        salesmanModel.setTotalSalesValue(totalSalesmanSaleValue);
         return salesmanModel;
     }
 }

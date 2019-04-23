@@ -14,7 +14,7 @@ public class ItemFactory {
     private static final String GROUP_NAME_PRICE = "priceItem";
 
     public ItemModel create(Matcher matcher) {
-        return ItemModel.builder()
+        return ItemModel.getBuilder()
                 .withId(Long.parseLong(matcher.group(GROUP_NAME_ID)))
                 .withQuantity(Integer.parseInt(matcher.group(GROUP_NAME_QUANTITY)))
                 .withPrice(new BigDecimal(matcher.group(GROUP_NAME_PRICE)))

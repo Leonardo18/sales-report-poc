@@ -1,6 +1,8 @@
 package com.poc.sales.report.model;
 
 import com.poc.sales.report.builder.CustomerBuilder;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class CustomerModel {
 
@@ -37,5 +39,10 @@ public class CustomerModel {
         this.businessArea = businessArea;
     }
 
-    public static CustomerBuilder builder() { return new CustomerBuilder(); }
+    public static CustomerBuilder getBuilder() { return new CustomerBuilder(); }
+
+    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this, ToStringStyle.JSON_STYLE);
+    }
 }

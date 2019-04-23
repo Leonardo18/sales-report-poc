@@ -14,7 +14,7 @@ public class CustomerFactory {
     private static final String GROUP_NAME_BUSINESS_AREA = "businessAreaCustomer";
 
     public CustomerModel create(Matcher matcher){
-        return CustomerModel.builder()
+        return CustomerModel.getBuilder()
                 .withId(Long.parseLong(matcher.group(GROUP_NAME_ID)))
                 .withTaxId(matcher.group(GROUP_NAME_TAX_ID))
                 .withName(matcher.group(GROUP_NAME_NAME))

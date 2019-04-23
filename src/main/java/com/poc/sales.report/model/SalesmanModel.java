@@ -1,6 +1,8 @@
 package com.poc.sales.report.model;
 
 import com.poc.sales.report.builder.SalesmanBuilder;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -46,5 +48,10 @@ public class SalesmanModel {
 
     public void setSaleModelList(List<SaleModel> saleModelList) { this.saleModelList = saleModelList; }
 
-    public static SalesmanBuilder builder() { return new SalesmanBuilder(); }
+    public static SalesmanBuilder getBuilder() { return new SalesmanBuilder(); }
+
+    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this, ToStringStyle.JSON_STYLE);
+    }
 }

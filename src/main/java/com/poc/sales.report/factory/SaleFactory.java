@@ -18,7 +18,7 @@ public class SaleFactory {
     public SaleFactory() { }
 
     public SaleModel create(Matcher matcher, List<ItemModel> itemModelList) {
-        return SaleModel.builder()
+        return SaleModel.getBuilder()
                 .withId(Long.parseLong(matcher.group(GROUP_NAME_ID)))
                 .withCode(Long.parseLong(matcher.group(GROUP_NAME_CODE)))
                 .withSalesmanName(matcher.group(GROUP_NAME_SALESMAN_NAME))

@@ -1,6 +1,7 @@
 package com.poc.sales.report.service;
 
 import com.poc.sales.report.factory.SaleFactory;
+import com.poc.sales.report.model.ItemModel;
 import com.poc.sales.report.model.SaleModel;
 import org.springframework.stereotype.Service;
 
@@ -40,11 +41,11 @@ public class SaleService {
     }
 
     private SaleModel getTotalSaleFromItems(SaleModel saleModel) {
-        saleModel.getItemModelList()
-                .forEach(saleItem -> {
-                    double totalSale = saleItem.getQuantity() * saleItem.getPrice().doubleValue();
-                    saleModel.setTotalSale(new BigDecimal(Double.sum(saleModel.getTotalSale().doubleValue(), totalSale)));
-                });
+        BigDecimal totalItemsValue = saleModel.getItemModelList()
+                .stream()
+                .map(itemSale -> itemSale.getPrice().multiply(BigDecimal.valueOf(itemSale.getQuantity())))
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+        saleModel.setTotalSale(totalItemsValue);
         return saleModel;
     }
 }
