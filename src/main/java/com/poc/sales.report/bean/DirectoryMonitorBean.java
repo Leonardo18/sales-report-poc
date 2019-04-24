@@ -1,6 +1,6 @@
 package com.poc.sales.report.bean;
 
-import com.poc.sales.report.service.DirectoryEventListenerService;
+import com.poc.sales.report.event.DirectoryListenerEvent;
 import com.poc.sales.report.service.SalesReportService;
 import com.poc.sales.report.service.ValidateFileService;
 import org.apache.commons.io.monitor.FileAlterationMonitor;
@@ -30,7 +30,7 @@ public class DirectoryMonitorBean  {
         final File directory = new File(BASE_DIRECTORY_PATH.concat(FILES_DIRECTORY_PATH));
 
         FileAlterationObserver fileAlterationObserver = new FileAlterationObserver(directory);
-        fileAlterationObserver.addListener(new DirectoryEventListenerService(validateFileService, salesReportService));
+        fileAlterationObserver.addListener(new DirectoryListenerEvent(validateFileService, salesReportService));
 
         final FileAlterationMonitor monitor = new FileAlterationMonitor(MONITOR_INTERVAL);
         monitor.addObserver(fileAlterationObserver);

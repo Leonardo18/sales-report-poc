@@ -1,5 +1,7 @@
-package com.poc.sales.report.service;
+package com.poc.sales.report.event;
 
+import com.poc.sales.report.service.SalesReportService;
+import com.poc.sales.report.service.ValidateFileService;
 import org.apache.commons.io.monitor.FileAlterationListener;
 import org.apache.commons.io.monitor.FileAlterationObserver;
 import org.springframework.stereotype.Service;
@@ -8,12 +10,12 @@ import java.io.File;
 import java.util.Arrays;
 
 @Service
-public final class DirectoryEventListenerService implements FileAlterationListener {
+public final class DirectoryListenerEvent implements FileAlterationListener {
 
     private ValidateFileService validateFileService;
     private SalesReportService salesReportService;
 
-    public DirectoryEventListenerService(ValidateFileService validateFileService, SalesReportService salesReportService) {
+    public DirectoryListenerEvent(ValidateFileService validateFileService, SalesReportService salesReportService) {
         this.validateFileService = validateFileService;
         this.salesReportService = salesReportService;
     }
