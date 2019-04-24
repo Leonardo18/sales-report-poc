@@ -15,8 +15,6 @@ public class SaleFactory {
     private static final String GROUP_NAME_CODE = "codeSale";
     private static final String GROUP_NAME_SALESMAN_NAME = "salesmanNameSale";
 
-    public SaleFactory() { }
-
     public SaleModel create(Matcher matcher, List<ItemModel> itemModelList) {
         return SaleModel.getBuilder()
                 .withId(Long.parseLong(matcher.group(GROUP_NAME_ID)))

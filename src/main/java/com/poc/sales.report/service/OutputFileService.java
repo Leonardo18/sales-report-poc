@@ -1,5 +1,6 @@
 package com.poc.sales.report.service;
 
+import com.poc.sales.report.config.FileOutputConfig;
 import com.poc.sales.report.model.SaleModel;
 import com.poc.sales.report.model.SalesmanModel;
 import org.apache.commons.io.FilenameUtils;
@@ -16,9 +17,12 @@ import java.util.List;
 @Service
 public class OutputFileService {
 
+    private FileOutputConfig fileOutputConfig;
     private static final String BASE_DIRECTORY_PATH = System.getProperty("user.home");
-    private static final String SALES_REPORT_DEST_PATH = "/data/out/";
-    private static final String SALES_REPORT_DEST_FILE_NAME = ".done.dat";
+
+    public OutputFileService(FileOutputConfig fileOutputConfig) {
+        this.fileOutputConfig = fileOutputConfig;
+    }
 
     public void processSalesReportFile (File sourceFile,
                                         Integer totalCustomers,
@@ -34,9 +38,9 @@ public class OutputFileService {
 
         Path file = Paths.get(
                 BASE_DIRECTORY_PATH
-                        .concat(SALES_REPORT_DEST_PATH)
+                        .concat(fileOutputConfig.getFileDirectoryPath())
                         .concat(getSourceFileNameWithoutExtension(sourceFile))
-                        .concat(SALES_REPORT_DEST_FILE_NAME)
+                        .concat(fileOutputConfig.getExtension())
         );
         Files.write(file, reportLines, Charset.forName("UTF-8"));
 

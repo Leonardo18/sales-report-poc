@@ -1,3 +1,10 @@
 file:
+  data:
+    in:
+      fileDirectoryPath: /data/in
+      monitorInterval: 10000
+    out:
+      fileDirectoryPath: /data/out/
+      extension: .done.dat
   extensions:
     - dat

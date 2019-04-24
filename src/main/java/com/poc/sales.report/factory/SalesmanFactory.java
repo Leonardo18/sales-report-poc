@@ -14,8 +14,6 @@ public class SalesmanFactory {
     private static final String GROUP_NAME_NAME = "nameSalesname";
     private static final String GROUP_NAME_SALARY = "salarySalesname";
 
-    public SalesmanFactory() { }
-
     public SalesmanModel create(Matcher matcher) {
         return SalesmanModel.getBuilder()
                 .withId(Long.parseLong(matcher.group(GROUP_NAME_ID)))

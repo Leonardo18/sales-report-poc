@@ -109,12 +109,6 @@ public class SalesReportServiceTest {
         return saleModelList;
     }
 
-    private List<CustomerModel> buildCustomerModelList() {
-        List<CustomerModel> customerModelList = new ArrayList<>();
-        customerModelList.add(buildCustomerModelWithAllfields());
-        return customerModelList;
-    }
-
     private File getFileByName(String fileName) {
         return new File(
                 Objects.requireNonNull(getClass().getClassLoader().getResource(fileName)).getFile()
