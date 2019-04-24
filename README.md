@@ -4,7 +4,7 @@ This poc is writed with ***Java*** to monitoring a folder with a file with speci
 ### Usage
 * To execute this project is necessary create some folders in your %HOMEPATH%, in Linux can be in /home/username and in Windows in /users/username/
 * The Folder that need be created is the folder ***data*** and inside this folder create other two folders with respective names ***in*** and ***out***
-* To execute project can be created a file with any name of your choice, but the content need respect the current layout:
+* To execute project can be created a file with any name of your choice, but the content need respect the current layout with character ***ç*** delimiter:
   ```001ç1234567891234çPedroç50000
   001ç3245678865434çPauloç40000.99
   002ç2345675434544345çJose da SilvaçRural
