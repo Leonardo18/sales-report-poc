@@ -55,7 +55,7 @@ public class SalesReportService {
             });
 
             if(Stream.of(salesmanModelList, customerModelList, saleModelList).allMatch(List::isEmpty))
-                throw new Exception("File cannot be processed, invalid content. File: " + file.getAbsolutePath());
+                throw new Exception("File cannot be processed, invalid content.");
 
             salesmanModelList = salesmanService.setSalesmanSales(salesmanModelList, saleModelList);
 
@@ -70,7 +70,12 @@ public class SalesReportService {
             System.out.println("File processed with success.");
 
         } catch (Exception ex) {
-            System.out.println("Error to proccess file, please verify file content and try again. File:" + file.getAbsolutePath());
+            System.out.println(
+                    "Error to proccess file, please verify file content and try again. File: "
+                            .concat(file.getAbsolutePath())
+                            .concat(" Error Message: ")
+                            .concat(ex.getMessage())
+            );
         }
     }
 
